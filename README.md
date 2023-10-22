@@ -37,3 +37,5 @@ To add a screenshot, create an `assets/images` folder in your repository and upl
 Coding Boot Camp. (n.d.). Professional Readme Guide. GitHub. https://coding-boot-camp.github.io/full-stack/github/professional-readme-guide
 
 CITE - https://api.jquery.com/hasClass/#hasClass-className
+
+CITE - https://stackoverflow.com/questions/7364150/find-object-by-id-in-an-array-of-javascript-objects 

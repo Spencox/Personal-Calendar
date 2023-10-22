@@ -34,7 +34,6 @@
           // copy stored data to workHours 
           cycleWorkHours(storedData);
         } else {
-          console.log("New Day");
           createHours(workDayElArr);
         }
       } else {
@@ -67,16 +66,12 @@
 
     // Event listener for save buttons
     calendarEl.on('click', '.saveBtn', function() {
-      var hrId = $(this).closest('.time-block').attr('id'); // investigate better way
-      saveCalendarContent(hrId);
+      var hrId = $(this).closest('.time-block').attr('id');
+      // find the textArea content
+      var scheduleMsg = $(this).closest('.time-block').find('.description').val();
+      // save to object
+      saveCalendarContent(hrId, scheduleMsg);
     });
-
-    function saveCalendarContent(hrId) {
-      var saveBtnPushed = hrId;
-      // get hour object
-      getStoredData(saveBtnPushed);
-    }
-
 
     // TODO: Add code to apply the past, present, or future class to each time
     // block by comparing the id to the current hour. HINTS: How can the id
@@ -84,7 +79,6 @@
     // past, present, and future classes? How can Day.js be used to get the
     // current hour in 24-hour time?
 
-    
     // remove time class from element
     function clearTimeClass(hrObjEl) {
       let updateObjClass = hrObjEl;
@@ -95,8 +89,10 @@
 
     // set hour status
     function setHourStatus(hrObj){
-      let currentHour = 12//getTime().format('HH');
+      let currentHour = 12//----------------------getTime().format('HH');
       let hrObjSelectorEl = $(hrObj.id);
+      let hrObjectTextareaEl = hrObjSelectorEl.closest('.time-block').find('.description');
+      hrObjectTextareaEl.text(hrObj.scheduled_event);
       if (currentHour > 9 && currentHour < 18) {
         if (currentHour == hrObj.hour) {
           clearTimeClass(hrObjSelectorEl);
@@ -122,19 +118,28 @@
       return currentCalendar
     }    
     
+    function saveCalendarContent(hrId, scheduleMsg) {
+      hrId = "#" + hrId;
+      // find the object with the id
+      let updateHr = workHours.find(obj => obj.id === hrId);
+      // set scheduled_event to value
+      updateHr.scheduled_event = scheduleMsg;
+      // write to local storage
+      localStorage.setItem("Daily Calendar" , JSON.stringify(workHours));
+    }
+    
     // TODO: Add code to display the current date in the header of the page.
 
+    // display time on top of schedule 
     function displayTime() {
       var currentCalendarDay = getTime().format('MMMM D, YYYY');
       $('#currentDay').text(currentCalendarDay);
       return currentCalendarDay
     }
 
+    // update the schedule every minute
     setInterval(cycleWorkHours(workHours), 60000);
-    //cycleWorkHours(workHours);
-
 
     // set up program
     init();
   });
-
