@@ -1,6 +1,6 @@
   // jQuery to wait for all elements to load before DOM elements are selected 
   $(function () {
-    // DOM elements
+    // calendar hour elements
     const cal9amEl = $('#hour-9');
     const cal10amEl = $('#hour-10');
     const cal11amEl = $('#hour-11');
@@ -10,16 +10,18 @@
     const cal3pmEl = $('#hour-15');
     const cal4pmEl = $('#hour-16');
     const cal5pmEl = $('#hour-17');
+    // save button
+    const calendarEl = $('.container-lg');
+
+
 
     // variables
     const workDay = [cal9amEl, cal10amEl,  cal11amEl, cal12pmEl, cal1pmEl, cal2pmEl, cal3pmEl, cal4pmEl, cal5pmEl ]
     let hourStatus =  {};
 
-    // function setHourStatus() {
-    //   for(let i = 0; i < workDay.length: ++i){
-    //     hourStatus[] 
-    //   }
-    // }
+    function hourFinder(event){
+
+    }
 
     // TODO: Add a listener for click events on the save button. This code should
     // use the id in the containing time-block as a key to save the user input in
@@ -27,7 +29,23 @@
     // function? How can DOM traversal be used to get the "hour-x" id of the
     // time-block containing the button that was clicked? How might the id be
     // useful when saving the description in local storage?
-    //
+    function saveCalendarContent() {
+      console.log("Made it to save function")
+      var saveBtnPushed = $(event.target.id);
+      console.log(saveBtnPushed);
+
+    }
+    
+    // Event listener for save buttons
+    calendarEl.on('click', '.saveBtn', function() {
+      var hrId = $(this).closest('.time-block').attr('id');
+      console.log(hrId);
+    });
+
+
+  
+    
+
     // TODO: Add code to apply the past, present, or future class to each time
     // block by comparing the id to the current hour. HINTS: How can the id
     // attribute of each time-block be used to conditionally add or remove the
@@ -39,6 +57,12 @@
     // attribute of each time-block be used to do this?
     //
     // TODO: Add code to display the current date in the header of the page.
-
+    function displayTime() {
+      var currentCalendarDay = dayjs().format('MMMM D, YYYY');
+      $('#currentDay').text(currentCalendarDay);
+      return currentCalendarDay
+    }
+    //setInterval(displayTime, 1000);
+    displayTime();
   });
 
