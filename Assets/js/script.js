@@ -29,6 +29,7 @@
       return updateObjClass
     }
 
+    // set hour status
     function setHourStatus(hrObj){
       let currentHour = getTime().format('HH');
       if (currentHour > 9 && currentHour < 18) {
