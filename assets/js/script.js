@@ -83,7 +83,7 @@
 
     // set hour status
     function setHourStatus(hrObj){
-      let currentHour = 12//----------------------getTime().format('HH');
+      let currentHour = getTime().format('HH');
       let hrObjSelectorEl = $(hrObj.id);
       let hrObjectTextareaEl = hrObjSelectorEl.closest('.time-block').find('.description');
       hrObjectTextareaEl.text(hrObj.scheduled_event);
