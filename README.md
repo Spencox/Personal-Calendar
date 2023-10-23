@@ -1,41 +1,45 @@
-# <Your-Project-Title>
+# Personal Calendar
 
 ## Description
 
-Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
+Interactive work day scheduler that allows user to plan out their day by clicking visual hour elements and typing in tasks or reminders. The tasks persist and are stored in local storage.
 
-- What was your motivation?
-- Why did you build this project? (Note: the answer is not "Because it was a homework assignment.")
-- What problem does it solve?
-- What did you learn?
+My motivation for this project was to provide a usable work day scheduler that would allow planning an prioritization on a daily basis. I used a combination of bootstrap for the CSS, jQuery for the javaScript DOM manipulation, and added a nice google font. It solves the problem of adequately profiting your workday. I learned several new ways to select and navigate DOM elements including the .closest() and .find() methods.
 
-## Table of Contents (Optional)
-
-If your README is long, add a table of contents to make it easy for users to find what they need.
-
-- [Installation](#installation)
-- [Usage](#usage)
-- [Credits](#credits)
-- [License](#license)
-
-## Installation
-
-What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
 
 ## Usage
 
-Provide instructions and examples for use. Include screenshots as needed.
+This site is up at github pages:
 
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
+https://spencox.github.io/Personal-Calendar/ 
 
-    ```md
-    ![alt text](assets/images/screenshot.png)
-    ```
+Location in Github Repository:
+
+https://github.com/Spencox/Personal-Calendar 
+
+Start page is easy to navigate. This is a one page applicaiton for a work day 9AM through 5PM. Notice that the current day for scheduling is at the top. Every 24 hours the date will change and it will clear the tasks in preparation for the next day. The screenshot below shows the current hour highlighted red, past hours in gray, and upcoming hours in green.
+
+![Alt text](./assets/screenshots/start-screen.png)
+
+Next, the user can click inside of any hourly block and type in a reminder or schedule event. After entering the event a single click on the save disk icon to the right will store the event and will persist through local storage.
+
+![Alt text](./assets/screenshots/enter-event.png)
+
+The page can be refreshed and the reminder will persist:
+
+![Alt text](./assets/screenshots/multi-entry.png)
+
+If the user made a mistake or needs to reschedule simply click in hourly box element delete task then hit save button. 
+
+![Alt text](./assets/screenshots/delete-note.png)
 
 ## Credits
 
 Coding Boot Camp. (n.d.). Professional Readme Guide. GitHub. https://coding-boot-camp.github.io/full-stack/github/professional-readme-guide
 
-CITE - https://api.jquery.com/hasClass/#hasClass-className
+jQuery. (n.d.). .hasClass() Method jQuery API Documentation
+https://api.jquery.com/hasClass/#hasClass-className
 
-CITE - https://stackoverflow.com/questions/7364150/find-object-by-id-in-an-array-of-javascript-objects 
+Original Poster. (2011, September). Find object by id in an array of JavaScript objects. Stack Overflow. https://stackoverflow.com/questions/7364150/find-object-by-id-in-an-array-of-javascript-objects 
+
+
